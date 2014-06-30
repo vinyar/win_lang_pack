@@ -5,12 +5,7 @@ require 'spec_helper'
 
 describe "lang_pack::default" do
   let(:chef_run) do
-    runner = ChefSpec::Runner.new(
-      log_level: :error,
-      cookbook_path: COOKBOOK_PATH
-    )
-    Chef::Config.force_logger true
-    runner.converge('recipe[lang_pack::default]')
+    ChefSpec::Runner.converge('recipe[win_lang_pack::default]')
   end
 
 #  it "installs bacon slicer" do

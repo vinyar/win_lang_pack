@@ -1,5 +1,0 @@
-[gerrit]
-host = https://emeril.frictionless.capital.ge.com
-port = 29418
-project = lang_pack
-defaultbranch = master
