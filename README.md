@@ -1,61 +1,36 @@
-lang_pack Cookbook
+win_lang_pack Cookbook
 ==================
-TODO: Enter the cookbook description here.
+Cookbook to install Language Packs on windows
 
-e.g.
-This cookbook makes your favorite breakfast sandwich.
 
 Requirements
 ------------
-TODO: List your cookbook requirements. Be sure to include any requirements this cookbook has on platforms, libraries, other cookbooks, packages, operating systems, etc.
+Built on Windows 2008.
 
-e.g.
-#### packages
-- `toaster` - lang_pack needs toaster to brown your bagel.
 
 Attributes
 ----------
-TODO: List your cookbook attributes here.
 
-e.g.
-#### lang_pack::default
-<table>
-  <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><tt>['lang_pack']['bacon']</tt></td>
-    <td>Boolean</td>
-    <td>whether to include bacon</td>
-    <td><tt>true</tt></td>
-  </tr>
-</table>
+# space-delimited list
+default['win_lang_pack']['language_list'] = 'en-US'
 
-Usage
------
-#### lang_pack::default
-TODO: Write usage instructions for each cookbook.
+# location of languages
+default['win_lang_pack']['lang_pack_location'] = '//some/share/name'
 
-e.g.
-Just include `lang_pack` in your node's `run_list`:
+# automatically reboot after install
+default['win_lang_pack']['post_install_reboot'] = true
 
-```json
-{
-  "name":"my_node",
-  "run_list": [
-    "recipe[lang_pack]"
-  ]
-}
-```
+
+Documentation
+-------------
+
+http://technet.microsoft.com/en-us/library/cc766010%28WS.10%29.aspx (or just lpksetup /?)
+
+
 
 Contributing
 ------------
-TODO: (optional) If this is a public cookbook, detail the process for contributing. If this is a private cookbook, remove this section.
 
-e.g.
 1. Fork the repository on Github
 2. Create a named feature branch (like `add_component_x`)
 3. Write your change
@@ -65,4 +40,4 @@ e.g.
 
 License and Authors
 -------------------
-Authors: TODO: List authors
+Authors: Alex Vinyar
