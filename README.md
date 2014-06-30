@@ -1,5 +1,6 @@
 win_lang_pack Cookbook
 ==================
+
 Cookbook to install Language Packs on windows
 
 
@@ -11,7 +12,7 @@ Built on Windows 2008.
 Attributes
 ----------
 
-# space-delimited list
+```space-delimited list
 default['win_lang_pack']['language_list'] = 'en-US'
 
 # location of languages
@@ -19,7 +20,7 @@ default['win_lang_pack']['lang_pack_location'] = '//some/share/name'
 
 # automatically reboot after install
 default['win_lang_pack']['post_install_reboot'] = true
-
+```
 
 Documentation
 -------------
