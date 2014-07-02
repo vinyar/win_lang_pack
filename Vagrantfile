@@ -10,15 +10,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "alex_win2k8"
 
   # Create a private network, which allows host-only access to the machine
-  config.vm.network :public_network, ip: "111.222.33.4"#, :bridge => 'adapter 1'
+  config.vm.network :public_network, ip: "111.222.33.4", :bridge => 'en0: Wi-Fi (AirPort)'
   # Create a forwarded port mapping which allows access to a specific port
   config.vm.network "forwarded_port", guest: 5985, host: 15985  # winrm
   config.vm.network "forwarded_port", guest: 3389, host: 13390  # remote desktop
   # config.vm.network "forwarded_port", guest: 4000, host: 4000   # chef-zero
 
 
+# config.omnibus.chef_version = :latest
+
   # Share an additional folder to the guest VM. The first argument is
   config.vm.synced_folder "../", "c:/cookbooks_path"
+  config.vm.synced_folder "binaries/", "c:/binaries"
+
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -45,6 +49,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = "."
     chef.add_recipe "win_lang_pack"
+    chef.log_level = :debug
   end
 
 end
